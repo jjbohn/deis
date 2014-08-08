@@ -11,7 +11,7 @@ import requests
 import threading
 
 from celery import task
-from docker.util import util
+from docker.utils import utils
 from django.conf import settings
 
 
@@ -101,5 +101,5 @@ def run_command(c, command):
         c.delete()
 
 def _has_hostname(image):
-    repo, tag = util.parse_repository_tag(image)
+    repo, tag = utils.parse_repository_tag(image)
     return True if '.' in repo else False
